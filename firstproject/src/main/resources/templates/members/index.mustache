@@ -8,14 +8,14 @@
     </tr>
     </thead>
     <tbody>
-    {{#article}}
-    <tr>
-        <th>{{id}}</th>
-        <td>{{title}}</td>
-        <td>{{content}}</td>
-    </tr>
-    {{/article}}
+    {{#memberList}}
+        <tr>
+            <th>{{id}}</th>
+            <td><a href="/members/{{id}}">{{email}}</a></td>
+            <td>{{password}}</td>
+        </tr>
+    {{/memberList}}
     </tbody>
 </table>
-<a href="/articles">Go to Article</a>
+<a href="/signup">회원가입</a>
 {{>layouts/footer}}

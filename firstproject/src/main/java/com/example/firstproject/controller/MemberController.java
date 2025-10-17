@@ -23,7 +23,7 @@ public class MemberController {
     @Autowired
     private MemberRepository memberRepository;
 
-    @GetMapping("/members/new")
+    @GetMapping("/signup")
     public String newMember() {
         return "members/new";
     }
@@ -40,7 +40,7 @@ public class MemberController {
         Member saved = memberRepository.save(member);
         // System.out.println(saved);
         log.info(saved.toString());
-        return "members/";
+        return "redirect:/members/" + saved.getId();
     }
 
     /**
@@ -53,7 +53,7 @@ public class MemberController {
         return "members/show";
     }
 
-    @GetMapping("/members/")
+    @GetMapping("/members")
     public String index(Model model) {
         List<Member> memberEntities = memberRepository.findAll();
         model.addAttribute("memberList", memberEntities);
