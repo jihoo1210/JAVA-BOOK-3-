@@ -85,6 +85,9 @@ public class MemberController {
      */
     @GetMapping("/members/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes rttr) {
-
+        Member memberEntity = memberRepository.findById(id).orElse(null);
+        if(memberEntity != null) memberRepository.delete(memberEntity);
+        rttr.addFlashAttribute("msg", "삭제되었습니다!");
+        return "redirect:/members";
     }
 }
