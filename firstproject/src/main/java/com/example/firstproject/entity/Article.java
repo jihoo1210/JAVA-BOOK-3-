@@ -21,6 +21,11 @@ public class Article {
     @Column
     private String content;
 
+    public void patch(Article articleEntity) {
+        if(articleEntity.getTitle() != null) this.title = articleEntity.getTitle();
+        if(articleEntity.getContent() != null) this.content = articleEntity.getContent();
+    }
+
     //    public Article(Long id, String title, String content) {
 //        this.id = id;
 //        this.title = title;
